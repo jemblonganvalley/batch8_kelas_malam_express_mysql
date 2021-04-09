@@ -1,0 +1,48 @@
+<main class="container-fluid flex-center">
+  {{> formAbsen}}
+  <section class="table_section">
+    <table class="siswa_list">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>NAMA</td>
+          <td>EMAIL</td>
+          <td>PHONE</td>
+          <td>BATCH</td>
+          <td>DATE</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.nama}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.telpon}}</td>
+          <td>{{this.batch}}</td>
+          <td name="{{this.date}}" class="date" id="{{this.id}}">
+            {{this.date}}
+          </td>
+          <input
+            type="hidden"
+            class="res_date{{this.id}}"
+            value="{{this.date}}"
+          />
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </section>
+</main>
+<!-- 
+<script>
+
+    var vl = document.querySelectorAll(".date")
+    vl.forEach((e, i)=>{
+      
+        e.innerHTML = document.querySelector(`.res_date${e.id}`).value.split("GMT")[0]
+        
+    })
+    
+    
+</script> -->
